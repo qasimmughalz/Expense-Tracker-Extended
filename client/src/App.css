@@ -1,0 +1,25 @@
+.App {
+  text-align: center;
+  
+}
+
+
+li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+
+.shadow-light{
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.btn-primary{
+  border: 0px;
+  background-color: #2a9d8f;
+}
+.btn-primary:hover, .btn-primary:focus{
+  border: 0px;
+  background-color: #264653;
+}
