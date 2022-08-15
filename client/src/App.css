@@ -23,3 +23,7 @@ a{
   border: 0px;
   background-color: #264653;
 }
+
+.text-primary{
+  color: #264653 !important;
+}

@@ -8,7 +8,7 @@
     "server":"npm start --prefix server",
     "client":"npm start --prefix client", 
     "build":"npm run build --prefix client && npm run server",
-    "watch":"concurrently \"npm run server\" && \"npm run cilent\"" 
+    "watch":"concurrently \"npm run server\" \"npm run client\"" 
     
   },
   "repository": {

@@ -52,6 +52,7 @@ export const ExpensesHistory = () => {
                 <li className="row  p-1  my-2">
                   <p className="col fw-bold">Expense</p>
                   <p className="col fw-bold">Price</p>
+                  <p className="col fw-bold">Actions</p>
                 </li>
           {reduxData &&
             reduxData.slice(0).reverse().map((result) => {
@@ -59,6 +60,10 @@ export const ExpensesHistory = () => {
                 <li className="row  p-1  my-2  " key={result.title}>
                   <span className="col" style={{textAlign:'left'}}>{result.title}</span>
                   <span className="col">{result.expense}</span>
+                  <span className="col">
+                    <i class="fas fa-trash text-danger small mx-2"></i>
+                    <i class="fas fa-edit small text-primary"></i>
+                    </span>
                 </li>
               );
             })}
