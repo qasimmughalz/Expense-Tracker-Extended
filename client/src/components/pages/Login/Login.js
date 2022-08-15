@@ -21,7 +21,7 @@ export const Login = () => {
         localStorage.setItem('email', inputEmail.current.value)
         const res = await axios({
           method:'POST', 
-          url:'https:\\localhost:8000/login', 
+          url:'https://localhost:8000/login', 
           data: {email: inputEmail.current.value, password:inputPassword.current.value.trim()}
         })
         .then(res=>{

@@ -21,7 +21,7 @@ export const AddExpense = () => {
         const email = localStorage.getItem('email')
         const res = await axios({
           method:'POST', 
-          url:'https:\\localhost:8000/expense/add', 
+          url:'https://localhost:8000/expense/add', 
           data: {email: email, title:inputTitle.current.value , category:'test', expense:inputAmount.current.value}, 
           headers : {
             'authorization': `Bearer ${token}`

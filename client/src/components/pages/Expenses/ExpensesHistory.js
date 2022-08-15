@@ -22,7 +22,7 @@ export const ExpensesHistory = () => {
   const AsyncFetch = async () => {
     const res = await axios({
       method: "Get",
-      url: "https:\\localhost:8000/expense",
+      url: "https://localhost:8000/expense",
       headers: {
         authorization: `Bearer ${token}`,
       },

@@ -13,7 +13,7 @@ export const CategoryList = () => {
         const fetchData = async ()=>{
             const res = await axios({
                 method:'GET', 
-                url:'https:\\localhost:8000/user/getCategories', 
+                url:'https://localhost:8000/user/getCategories', 
                 headers:{
                     'authorization': `Bearer ${token}`
                 }

@@ -15,6 +15,18 @@ const app = express()
 app.use(express.json())
 app.use(cors({origin: '*'}))
 
+app.use(express.static(path.join(__dirname , '..', 'public')))
+
+
+
+
+
+app.use('/user', authorize ,  UserRoutes)
+app.use('/expense', authorize,  expenseRouter)
+
+app.get("/*", (req, res)=>{
+    res.sendFile(path.join(__dirname ,'..', 'public', 'index.html'))
+})
 
 const configure = {
     JWT_SECRET_KEY: process.env.JWT_SECRET_KEY
@@ -74,9 +86,6 @@ function authorize(req, res, next){
     })
 }
 
-
-app.use('/user', authorize ,  UserRoutes)
-app.use('/expense', authorize,  expenseRouter)
 
 
 module.exports = app

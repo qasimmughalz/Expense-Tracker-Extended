@@ -1,0 +1,25 @@
+{
+  "name": "expense",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server":"npm start --prefix server",
+    "client":"npm start --prefix client", 
+    "build":"npm run build --prefix client && npm run server",
+    "watch":"concurrently \"npm run server\" && \"npm run cilent\"" 
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qasimmughalz/Expense-Tracker-Extended.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/qasimmughalz/Expense-Tracker-Extended/issues"
+  },
+  "homepage": "https://github.com/qasimmughalz/Expense-Tracker-Extended#readme"
+}

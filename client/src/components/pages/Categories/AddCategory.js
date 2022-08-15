@@ -11,7 +11,7 @@ export const AddCategory = ()=>{
         const email = localStorage.getItem('email')
         const res = await axios({
           method:'POST', 
-          url:'https:\\localhost:8000/user/categories', 
+          url:'https://localhost:8000/user/categories', 
           data: {category: inputCategory.current.value }, 
           headers : {
             'authorization': `Bearer ${token}`

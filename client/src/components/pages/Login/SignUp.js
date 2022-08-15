@@ -20,7 +20,7 @@ export const SignUp = () => {
       const request = async ()=>{
         const res = await axios({
           method:'POST', 
-          url:'https:\\localhost:8000/signup', 
+          url:'https://localhost:8000/signup', 
           data: {
             name: inputName.current.value,
             gender:inputGender.current.value, 
