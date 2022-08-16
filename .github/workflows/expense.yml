@@ -1,7 +1,8 @@
 name: Expense Project Extented
-runs-on:
+on:
   push:
-    branches: [ temp ]
+    branches: 
+     - temp
 jobs:
   build:
     run-on: ubuntu-latest
