@@ -1,5 +1,5 @@
 name: Expense Project Extented
-on:
+runs-on:
   push:
     branches: [ temp ]
 jobs:
