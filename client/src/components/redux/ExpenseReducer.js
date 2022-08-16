@@ -7,7 +7,8 @@ const ExpenseReducer = createSlice({
     initialState:{
         expenses:[],
         categories: [], 
-        flag: false
+        flag: false, 
+        temp_del_expense_id:''
     }, 
     reducers:{
         setExpenses:(state, action)=>{
@@ -18,11 +19,14 @@ const ExpenseReducer = createSlice({
         },
         setAddExpenseFlag: (state)=>{
             state.flag = !state.flag
+        }, 
+        setTempDelExpenseId:(state, action)=>{
+            state.temp_del_expense_id = action.payload
         }
     }
 })
 
 
 
-export const {setExpenses , setCategories , setAddExpenseFlag} = ExpenseReducer.actions
+export const {setExpenses , setCategories , setAddExpenseFlag, setTempDelExpenseId} = ExpenseReducer.actions
 export default ExpenseReducer.reducer

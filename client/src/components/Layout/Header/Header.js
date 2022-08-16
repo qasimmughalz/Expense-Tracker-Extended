@@ -27,7 +27,7 @@ export const Header = (props)=>{
                         <div className="btn-group dropstart">
                             <i className="fas fa-bars"  data-bs-toggle="dropdown" aria-expanded="false"></i>
                                 <ul className="dropdown-menu">
-                                    <li><a className="dropdown-item" onClick={logout}>Logout Now</a></li>
+                                    <li><a className="dropdown-item delete-button" onClick={logout}>Logout</a></li>
                                 </ul>
                         </div>
                         </div>

@@ -15,12 +15,12 @@ export const Dashboard = ()=>{
                         <CategoryList/>
                         <AddCategory/>
                     </div>
-                    <div className="col-md-5 bg-white  rounded">
+                    <div className="col-md-4 bg-white  rounded">
                         <div>
                             <AddExpense/>
                         </div>  
                     </div>
-                    <div className="col-md-3 bg-white rounded">
+                    <div className="col-md-4 bg-white rounded">
                             <ExpensesHistory/>
                     </div>
                 </div>

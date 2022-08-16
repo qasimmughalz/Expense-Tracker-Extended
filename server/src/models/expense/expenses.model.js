@@ -52,8 +52,20 @@ async function getUserExpense(user){
 }
 
 
+async function DeleteExpense(id){
+    try {
+        const findId = await expenseDB.deleteOne({_id:id})
+        return findId
+    } catch (error) {
+        console.log("error in deleting expenses data". error)
+        return 
+    }
+}
+
+
 module.exports = {
     addNewExpense, 
     getAllExpenses, 
-    getUserExpense
+    getUserExpense, 
+    DeleteExpense
 }

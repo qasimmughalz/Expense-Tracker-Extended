@@ -1,12 +1,12 @@
 .App {
   text-align: center;
-  
 }
 
 
 li{
   list-style: none;
 }
+
 a{
   text-decoration: none;
 }
@@ -26,4 +26,8 @@ a{
 
 .text-primary{
   color: #264653 !important;
+}
+
+.delete-button:hover{
+  cursor: pointer;
 }

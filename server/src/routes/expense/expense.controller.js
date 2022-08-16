@@ -1,4 +1,4 @@
-const { addNewExpense, getAllExpenses, getUserExpense } = require("../../models/expense/expenses.model")
+const { addNewExpense, getAllExpenses, getUserExpense , DeleteExpense} = require("../../models/expense/expenses.model")
 
 
 
@@ -38,8 +38,15 @@ async function httpGetUserExpense(req,res){
 }
 
 
+
+async function httpDeleteExpense(req,res){ 
+    const id = req.params.id
+    return res.status(200).json(await DeleteExpense(id))
+}
+
 module.exports = {
     httpAddNewExpense, 
     httpGetAllExpenses,
-    httpGetUserExpense
+    httpGetUserExpense, 
+    httpDeleteExpense
 }

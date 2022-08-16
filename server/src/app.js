@@ -21,18 +21,6 @@ app.use(express.static(path.join(__dirname , '..', 'public')))
 
 
 
-app.use('/user', authorize ,  UserRoutes)
-app.use('/expense', authorize,  expenseRouter)
-
-app.get("/*", (req, res)=>{
-    res.sendFile(path.join(__dirname ,'..', 'public', 'index.html'))
-})
-
-const configure = {
-    JWT_SECRET_KEY: process.env.JWT_SECRET_KEY
-}
-
-
 // ================= Authentication | Login  =========================
 
 
@@ -42,7 +30,7 @@ app.post('/login', async (req,res)=>{
     console.log("User foud is:", authenticate)
     if(!authenticate){
         res.status(400).json({
-            message:'user not found'
+            message:'User Not found'
         })
     }else{  
         if(authenticate.password === password){
@@ -71,11 +59,13 @@ function createJwtToken(user){
     return token
 }
 
+
+
 function authorize(req, res, next){
     const authHeader = req.headers['authorization']
     const token = authHeader && authHeader.split(' ')[1] 
     if(token == null){
-        res.status(401).json({
+        return res.status(401).json({
             error:'no token found'
         })
     }
@@ -86,6 +76,39 @@ function authorize(req, res, next){
     })
 }
 
+
+app.post('/verifyToken', (req,res )=>{
+    const authHeader = req.headers['authorization']
+    const token = authHeader && authHeader.split(' ')[1] 
+    if(token == null){
+        return res.status(404).json({
+            error:'No token found'  
+        })
+    }
+    jwt.verify(token , configure.JWT_SECRET_KEY, (err, user)=>{
+        if(err) {
+         return res.status(403).json({error: 'Token is not valid'})
+        }else{
+            return res.status(200).json({message: 'Token Verified'})
+        }
+        
+    })
+})
+
+
+
+
+
+app.use('/user', authorize ,  UserRoutes)
+app.use('/expense', authorize,  expenseRouter)
+
+app.get("/*", (req, res)=>{
+    res.sendFile(path.join(__dirname ,'..', 'public', 'index.html'))
+})
+
+const configure = {
+    JWT_SECRET_KEY: process.env.JWT_SECRET_KEY
+}
 
 
 module.exports = app
