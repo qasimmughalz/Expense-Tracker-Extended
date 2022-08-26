@@ -9,6 +9,9 @@ const jwt = require('jsonwebtoken')
 const userDB = require('./models/users/users.mongo')
 const cors = require('cors')
 const { httpSignUpUser } = require('./routes/auth')
+const { postAllSessions } = require('./routes/sessions/sessions')
+const { AggregationTest } = require('./models/expense/expenses.model')
+const { readdirSync } = require('fs')
 const app = express()
 
 
@@ -96,19 +99,34 @@ app.post('/verifyToken', (req,res )=>{
 })
 
 
+app.post('/allSessions', postAllSessions )
 
+
+
+app.get('/test', async (req,res)=>{
+    const result = await AggregationTest()
+    return res.status(200).json({res: result})
+} )
 
 
 app.use('/user', authorize ,  UserRoutes)
 app.use('/expense', authorize,  expenseRouter)
 
-app.get("/*", (req, res)=>{
-    res.sendFile(path.join(__dirname ,'..', 'public', 'index.html'))
-})
+
 
 const configure = {
     JWT_SECRET_KEY: process.env.JWT_SECRET_KEY
 }
+
+
+
+
+
+
+
+
+
+
 
 
 module.exports = app

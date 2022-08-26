@@ -30,6 +30,7 @@ export const Login = () => {
           data: {email: inputEmail.current.value, password:inputPassword.current.value.trim()}
         })
         .then(res=>{
+
           console.log('Data in Response', res);
           console.log("token==", res.data.accessToken)
           dispatch(loginHandler(res.data.accessToken))
@@ -37,7 +38,7 @@ export const Login = () => {
         })
         .catch(err=> {
         console.log('error in api call ' , err)
-        setMessage(err.response.data.message)
+        setMessage(err.message)
         setShowMessage(true)
         setLoading(false)
         })
@@ -47,9 +48,24 @@ export const Login = () => {
       inputPassword.current.value=''
     }
 
+    const handleGoogleLogin = async ()=>{
+      const resp = axios({
+        method:'GET',
+        url:'https://localhost:8000/auth/google'
+      }).then((res)=>{
+        console.log("Check Google Response", res)
+      }).catch((err)=>{
+        console.log("error in google auth ", err)
+      })
+    }
+
   return (<>
   <div className='col-md-4 m-auto border p-5 shadow-light'>
          <h3 className='display-5 my-3'>Login</h3>
+         {/* <div className='bg-primary rounded text-white p-2 shadow-light delete-button' onClick={handleGoogleLogin}>
+            <span><i class="fab fa-google mx-3 text-warning"></i></span> 
+            <span>Login with Google</span>
+         </div> */}
           <form  onSubmit={submitHandler}>
             <input type='email' ref={inputEmail}  placeholder='email' className='form-control my-3'/> 
             <input type='password' ref={inputPassword}  placeholder='pasword' className='form-control'/> 

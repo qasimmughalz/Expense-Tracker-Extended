@@ -19,7 +19,7 @@ export const Header = (props)=>{
         <div className="row justify-content-between p-1">
             <div className="col-md-2">
                     <img src={logo} alt="logo " className={classes.logo}/>
-                    SeniUyuiU
+                    ExpenseTracker
             </div>
             <div className="col-md-1 my-auto">
                     <div className="row justify-content-around align-items-center">

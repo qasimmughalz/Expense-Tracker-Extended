@@ -1,4 +1,4 @@
-const { addNewExpense, getAllExpenses, getUserExpense , DeleteExpense} = require("../../models/expense/expenses.model")
+const { addNewExpense, getAllExpenses, getUserExpense , DeleteExpense, updateExpense} = require("../../models/expense/expenses.model")
 
 
 
@@ -44,9 +44,16 @@ async function httpDeleteExpense(req,res){
     return res.status(200).json(await DeleteExpense(id))
 }
 
+
+async function httpUpdateExpense(req,res){ 
+    const userEmail = req.user.user
+    return res.status(200).json(await updateExpense(req.body , userEmail))
+}
+
 module.exports = {
     httpAddNewExpense, 
     httpGetAllExpenses,
     httpGetUserExpense, 
-    httpDeleteExpense
+    httpDeleteExpense,
+    httpUpdateExpense
 }

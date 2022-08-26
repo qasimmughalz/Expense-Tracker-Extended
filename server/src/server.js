@@ -21,8 +21,6 @@ const configure = {
     SESSION_KEY_2: process.env.SESSION_KEY_2
 }
 
-
-
 // ====================== PASPORT JS SETUP FOR AUTH ( Simplified ) =================
 
 const Auth_Strategy_Config = {
@@ -84,7 +82,6 @@ app.get('/secret', checkLoggedIn,  (req, res) => {
     res.send('Yo---- Its the secured end point !!')
 })
 
-
 // =================== SINGLE SIGN ON WITH GOOGLE ===================
 
 
@@ -97,15 +94,22 @@ app.get('/auth/google/callback', passport.authenticate('google', {
     successRedirect:'/', 
     session: true
 }), (req, res)=>{
-    console.log('Google Called Us Back ! ')
+    res.redirect('/')
+    res.status(200).json()
+    console.log('Google Called Us Back Brotherrrr ! ')
 })
-
 
 app.get('/auth/logout', (req, res) => {
     req.logout();
     res.redirect('/')
  })
 
+
+// ---------------  If any other end point go to the Static Pages ------------
+
+ app.get("/*", (req, res)=>{
+    res.sendFile(path.join(__dirname ,'..', 'public', 'index.html'))
+})
 
 
 // ======================= Self-Signed Keys ====================
@@ -135,6 +139,8 @@ async function connectMongoDb() {
     await mongoose.connect('mongodb+srv://admin:WNRRWpqffFZeWuB5@cluster0.xdxq9.mongodb.net/?retryWrites=true&w=majority')
 
     server.listen(PORT, () => console.log(`Running on ${PORT}`))
+
+    
 }
 
 

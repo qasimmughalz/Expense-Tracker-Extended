@@ -21,8 +21,9 @@ async function getAllUsers(user){
 async function getAllCategories(email){
     try {
         const userFind = await usersDB.findOne({email})
-        console.log("user categories", userFind)
-       return await userFind.categories
+        console.log("user categories found is ##", userFind)
+        const categories = userFind.categories
+       return categories
     } catch (error) {
         console.log("Error in Saving")
     }s
@@ -31,7 +32,7 @@ async function getAllCategories(email){
 
 async function addNewCategory(gmail , category){
     try {
-        const userFind = await usersDB.findOne({gmail})
+        const userFind = await usersDB.findOne({email: gmail})
         console.log("Email Received : ", userFind)
         console.log("Category Received : ",category)
         userFind.categories.push(category)

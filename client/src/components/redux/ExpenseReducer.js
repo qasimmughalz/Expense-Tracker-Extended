@@ -8,7 +8,8 @@ const ExpenseReducer = createSlice({
         expenses:[],
         categories: [], 
         flag: false, 
-        temp_del_expense_id:''
+        temp_del_expense_id:'', 
+        selectedCategory:''
     }, 
     reducers:{
         setExpenses:(state, action)=>{
@@ -22,11 +23,14 @@ const ExpenseReducer = createSlice({
         }, 
         setTempDelExpenseId:(state, action)=>{
             state.temp_del_expense_id = action.payload
+        }, 
+        setSelectedCategory:(state, action)=>{
+            state.selectedCategory = action.payload
         }
     }
 })
 
 
 
-export const {setExpenses , setCategories , setAddExpenseFlag, setTempDelExpenseId} = ExpenseReducer.actions
+export const {setExpenses , setCategories , setAddExpenseFlag, setTempDelExpenseId, setSelectedCategory} = ExpenseReducer.actions
 export default ExpenseReducer.reducer

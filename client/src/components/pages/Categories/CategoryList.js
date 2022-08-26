@@ -1,12 +1,18 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setCategories } from "../../redux/ExpenseReducer";
 
 
 
 export const CategoryList = () => {
 
-    const [categories, setCategories] = useState([])
+    // const [categories, setCategories] = useState([])
+    // const category = useSelector(state=> state.expenseReducer.categories)
+    const category = useSelector(state=> state.expense.categories)
+    console.log("hhh========", category)
     const token = localStorage.getItem('token')
+    const dispatch = useDispatch()
 
     useEffect(()=>{
 
@@ -19,22 +25,19 @@ export const CategoryList = () => {
                 }
             }).then((res)=>{
                 console.log("Categories Received", res)
-                setCategories(res.data)
+                dispatch(setCategories(res.data))  
             }).catch((err)=> console.log("Categories Fetch Error", err))
         }
         fetchData()
 
     },[])
 
-
   return (
     <>
-      <div>
-        <ul>
-            {categories && categories.map((data)=>{
-                return  <li key={data}>{data}</li>
-            })}
-        </ul>
+      <div className="d-flex flex-wrap">
+            {category.length <= 0 ? '' : (category.map((data)=>{
+                return  <span key={data} className='border border-dark rounded px-2 m-1 category'>{data}</span> 
+            }))}
       </div>
     </>
   );

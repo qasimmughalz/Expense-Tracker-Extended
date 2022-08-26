@@ -18,6 +18,9 @@ const expenseSchema = mongoose.Schema({
     budget:{
         type:Number
     }, 
+    date:{
+        type:Date
+    },
     user:{
         type: mongoose.Schema.Types.ObjectId, 
         ref:'user'

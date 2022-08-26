@@ -31,3 +31,12 @@ a{
 .delete-button:hover{
   cursor: pointer;
 }
+
+
+.category{
+  font-size: 12px;
+}
+
+::placeholder{
+  font-size: 13px;
+}

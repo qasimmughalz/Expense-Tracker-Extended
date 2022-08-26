@@ -8,12 +8,10 @@ import { UnAthorized } from "./components/routes/UnAuthorized";
 
 function App() {
 
-    
   const userLoggedIn = useSelector(state=> state.userAuth.loggedIn)
   console.log("App", userLoggedIn)
   const dispatch = useDispatch()
   const localToken = localStorage.getItem('token')
-
 
 
   async function ValidateToken(token){
@@ -23,7 +21,7 @@ function App() {
       headers:{
         'authorization':`Bearer ${token}`
       }
-    }).then((res)=>{
+    }).then((res)=>{  
       if(res.status === 200){
         dispatch(loginHandler(token))
       }else{
@@ -43,7 +41,6 @@ function App() {
     console.log("Token Found")
     ValidateToken(localToken)
   }
-
 
   return (
     <div className="App ">
