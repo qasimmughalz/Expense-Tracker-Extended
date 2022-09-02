@@ -15,7 +15,7 @@ export const Dashboard = ()=>{
 
 
     const expenses = useSelector(state=> state.expense.expenses)
-    const GraphDataSet = expenses.map((res)=> res.expense)
+    const GraphDataSet = expenses.map((res)=> res.expense)  
     const [chartLabels, setChartLabels] = useState([])
 
     let monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -32,6 +32,7 @@ export const Dashboard = ()=>{
         // updated.forEach(element => {
         //     console.log(`ForEach Dates are : ${element.getDay()}  ${monthNames[element.getMonth()]}`)
         // });
+        
 
         const temp = updated.map((data)=> {
             console.log("Data is now ", data)
