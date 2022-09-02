@@ -1,4 +1,4 @@
-# Expense-Tracker-Extended -> Track Expenses by categories with MERN Stack
+# Track Expenses by categories with MERN Stack
 
 
 How to use ?
