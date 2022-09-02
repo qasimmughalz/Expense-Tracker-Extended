@@ -13,17 +13,9 @@ function App() {
   const dispatch = useDispatch()
   const localToken = localStorage.getItem('token')
 
-
-
-   // function isTokenExpired(token) {
-  //   const payloadBase64 = token.split(".")[1];
-  //   const decodedJson = Buffer.from(payloadBase64, "base64").toString();
-  //   const decoded = JSON.parse(decodedJson);
-  //   const exp = decoded.exp;
-  //   const expired = Date.now() >= exp * 1000;
-  //   return expired;
-  // }
-
+   const myfunction = ()=>{
+    console.log("This is function is from branch feature , have a look on it please")
+   }
 
   async function ValidateToken(token){
     const res = await axios({
